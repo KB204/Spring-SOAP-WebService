@@ -1,0 +1,10 @@
+services:
+  mysql:
+    image: 'mysql:5.7'
+    environment:
+      - 'MYSQL_DATABASE=customers_db'
+      - 'MYSQL_PASSWORD=password'
+      - 'MYSQL_ROOT_PASSWORD=password123'
+      - 'MYSQL_USER=myuser'
+    ports:
+      - '3306'

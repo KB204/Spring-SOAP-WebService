@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://controller.soap_service.soap_test_project.net/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="CustomerControllerService" targetNamespace="http://controller.soap_service.soap_test_project.net/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://controller.soap_service.soap_test_project.net/" elementFormDefault="unqualified" targetNamespace="http://controller.soap_service.soap_test_project.net/" version="1.0">
+
+  <xs:element name="getAllCustomers" type="tns:getAllCustomers"/>
+
+  <xs:element name="getAllCustomersResponse" type="tns:getAllCustomersResponse"/>
+
+  <xs:element name="getCustomerByIdentity" type="tns:getCustomerByIdentity"/>
+
+  <xs:element name="getCustomerByIdentityResponse" type="tns:getCustomerByIdentityResponse"/>
+
+  <xs:element name="removeCustomer" type="tns:removeCustomer"/>
+
+  <xs:element name="removeCustomerResponse" type="tns:removeCustomerResponse"/>
+
+  <xs:element name="saveNewCustomer" type="tns:saveNewCustomer"/>
+
+  <xs:element name="saveNewCustomerResponse" type="tns:saveNewCustomerResponse"/>
+
+  <xs:complexType name="getAllCustomers">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllCustomersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Customer" type="tns:customerResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="customerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="identity" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identity" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeCustomerResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getCustomerByIdentity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identity" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCustomerByIdentityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customer" type="tns:customerResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveNewCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customer" type="tns:customerRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="customerRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="identity" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveNewCustomerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customer" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllCustomers">
+    <wsdl:part element="tns:getAllCustomers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCustomerResponse">
+    <wsdl:part element="tns:removeCustomerResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomerByIdentity">
+    <wsdl:part element="tns:getCustomerByIdentity" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllCustomersResponse">
+    <wsdl:part element="tns:getAllCustomersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomerByIdentityResponse">
+    <wsdl:part element="tns:getCustomerByIdentityResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCustomer">
+    <wsdl:part element="tns:removeCustomer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveNewCustomer">
+    <wsdl:part element="tns:saveNewCustomer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveNewCustomerResponse">
+    <wsdl:part element="tns:saveNewCustomerResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerWS">
+    <wsdl:operation name="getAllCustomers">
+      <wsdl:input message="tns:getAllCustomers" name="getAllCustomers">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllCustomersResponse" name="getAllCustomersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCustomer">
+      <wsdl:input message="tns:removeCustomer" name="removeCustomer">
+    </wsdl:input>
+      <wsdl:output message="tns:removeCustomerResponse" name="removeCustomerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerByIdentity">
+      <wsdl:input message="tns:getCustomerByIdentity" name="getCustomerByIdentity">
+    </wsdl:input>
+      <wsdl:output message="tns:getCustomerByIdentityResponse" name="getCustomerByIdentityResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveNewCustomer">
+      <wsdl:input message="tns:saveNewCustomer" name="saveNewCustomer">
+    </wsdl:input>
+      <wsdl:output message="tns:saveNewCustomerResponse" name="saveNewCustomerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerControllerServiceSoapBinding" type="tns:CustomerWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllCustomers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllCustomers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllCustomersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCustomer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeCustomer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerByIdentity">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCustomerByIdentity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCustomerByIdentityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveNewCustomer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="saveNewCustomer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveNewCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerControllerService">
+    <wsdl:port binding="tns:CustomerControllerServiceSoapBinding" name="CustomerWSPort">
+      <soap:address location="http://localhost:8080/api/soap/CustomerService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
