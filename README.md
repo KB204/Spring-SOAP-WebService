@@ -1,4 +1,4 @@
-# 🧼 SOAP & REST Integration System
+# SOAP & REST Integration System
 
 This project demonstrates how to build, expose, and consume **SOAP web services** using **Spring Boot**
 
